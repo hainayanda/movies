@@ -55,8 +55,6 @@ class PopularMoviesCellVM: ViewModel<PopularMoviesCell> {
             self.cellsVMs = cellsVMs
         }.whenFailed { [weak self] error in
             self?.shimmer = false
-            print("ERROR: \(error.localizedDescription)")
-            //TODO: show popup
         }
     }
     

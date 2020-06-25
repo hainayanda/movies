@@ -69,8 +69,6 @@ class MoviesCellVM: ViewModel<MoviesCell> {
             self.cellsVMs = cellsVMs
         }.whenFailed { [weak self] error in
             self?.shimmer = false
-            print("ERROR: \(error.localizedDescription)")
-            //TODO: show popup
         }
         genresRepo.whenSuccess { [weak self] results in
             guard let self = self else { return }

@@ -74,7 +74,9 @@ class AllMoviesVM: ScreenViewModel<GeneralTableView> {
             guard let self = self else { return }
             if error.localizedDescription == "Max page excedded" {
                 self.noMorePage = true
+                return
             }
+            self.view?.showToast(message: error.localizedDescription)
         }
         genresRepo.whenSuccess { [weak self] results in
             guard let self = self else { return }

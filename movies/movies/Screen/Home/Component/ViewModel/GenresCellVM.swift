@@ -64,8 +64,6 @@ class GenresCellVM: ViewModel<GenresCell> {
             self.cellsVMs = cellsVMs
         }.whenFailed { [weak self] error in
             self?.shimmer = false
-            print("ERROR: \(error.localizedDescription)")
-            //TODO: show popup
         }
     }
     

@@ -95,7 +95,9 @@ class MovieDetailsVM: ScreenViewModel<TranslucentTableView> {
             guard let self = self else { return }
             if error.localizedDescription == "Max page excedded" {
                 self.noMorePage = true
+                return
             }
+            self.view?.showToast(message: error.localizedDescription)
         }
     }
     
@@ -105,8 +107,9 @@ class MovieDetailsVM: ScreenViewModel<TranslucentTableView> {
             self.previewCell.youtubeCompat = result
             self.hasVideo = result.isCompatibleWithYoutube
             self.updateView()
-        }.whenFailed { [weak self] _ in
+        }.whenFailed { [weak self] error in
             self?.hasVideo = false
+            self?.view?.showToast(message: error.localizedDescription)
         }
     }
     
@@ -116,9 +119,9 @@ class MovieDetailsVM: ScreenViewModel<TranslucentTableView> {
             self.headerCell.shimmer = false
             self.applyHeader(with: result)
             self.updateView()
-        }.whenFailed { [weak self] _ in
+        }.whenFailed { [weak self] error in
             self?.headerCell.shimmer = false
-            // do something
+            self?.view?.showToast(message: error.localizedDescription)
         }
     }
     
