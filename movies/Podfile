@@ -1,0 +1,38 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+def network_pods
+  pod 'Alamofire', '~> 5.2'
+  pod 'Nuke', '~> 9.0'
+end
+
+def testing_pods
+  pod 'Quick'
+  pod 'Nimble'
+end
+
+def ui_pods
+  pod 'SnapKit', '~> 5.0.0'
+  pod "SkeletonView"
+end
+
+target 'movies' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for movies
+  network_pods
+  ui_pods
+  pod "youtube-ios-player-helper-swift", "~> 1.1"
+
+  target 'moviesTests' do
+    inherit! :search_paths
+    # Pods for testing
+    testing_pods
+  end
+
+  target 'moviesUITests' do
+    # Pods for testing
+  end
+
+end
