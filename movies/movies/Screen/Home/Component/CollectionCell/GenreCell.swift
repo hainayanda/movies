@@ -29,7 +29,9 @@ class GenreCell: UICollectionViewCell, CellComponent {
         setupLabel()
         
         contentView.addSubview(card)
-        card.frame = contentView.bounds.marginedBy(insets: .init(insets: 9))
+        card.frame = contentView.bounds.marginedBy(insets:
+            .init(top: 18, left: 9, bottom: 18, right: 9)
+        )
         card.layer.cornerRadius = 18
         card.addDropShadow(at: .bottom)
         card.addSubview(label)

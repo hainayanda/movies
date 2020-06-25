@@ -41,7 +41,8 @@ class RatedMovieCell: UICollectionViewCell, CellComponent {
     func makeSubviewsConstraints() {
         contentView.addSubview(posterContainer)
         posterContainer.snp.remakeConstraints { make in
-            make.top.left.right.equalToSuperview().inset(9)
+            make.left.right.equalToSuperview().inset(9)
+            make.top.equalToSuperview().inset(18)
         }
         posterContainer.addSubview(poster)
         poster.snp.remakeConstraints { make in
@@ -56,7 +57,7 @@ class RatedMovieCell: UICollectionViewCell, CellComponent {
         contentView.addSubview(star)
         star.snp.remakeConstraints { make in
             make.height.width.equalTo(18)
-            make.left.bottom.equalToSuperview().inset(9)
+            make.left.bottom.equalToSuperview().inset(18)
             make.top.equalTo(title.snp.bottom).offset(9)
         }
         contentView.addSubview(rating)

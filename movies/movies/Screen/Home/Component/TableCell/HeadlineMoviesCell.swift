@@ -16,7 +16,7 @@ class HeadlineMoviesCell: UITableViewCell, CalculatedTableCellComponent {
     static var reuseIdentifier: String = "headline_movies_cell"
     
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
-        return table.frame.width / 2
+        return table.frame.width * 0.54
     }
     
     lazy var collectionLayout: UICollectionViewFlowLayout = .init()
@@ -66,7 +66,7 @@ class HeadlineMoviesCell: UITableViewCell, CalculatedTableCellComponent {
         contentView.addSubview(pageControl)
         pageControl.snp.remakeConstraints { make in
             make.left.right.equalToSuperview().inset(18)
-            make.bottom.equalToSuperview().inset(18)
+            make.bottom.equalToSuperview().inset(27)
             make.height.equalTo(9)
         }
     }

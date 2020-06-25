@@ -15,7 +15,7 @@ class MoviesCell: UITableViewCell, CalculatedTableCellComponent {
     static var reuseIdentifier: String = "movies_cell"
     
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
-        return 225
+        return 242
     }
     
     lazy var collectionLayout: UICollectionViewFlowLayout = .init()

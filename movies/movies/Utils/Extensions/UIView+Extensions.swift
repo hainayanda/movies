@@ -27,13 +27,13 @@ public extension UIView {
     func addDropShadow(at direction: DropShadowDirection) {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.09
-        layer.shadowRadius = 4.5
+        layer.shadowRadius = 1.8
         layer.masksToBounds = false
         switch direction {
         case .top:
-            layer.shadowOffset = .init(width: 0, height: -2)
+            layer.shadowOffset = .init(width: 0, height: -2.7)
         case .bottom:
-            layer.shadowOffset = .init(width: 0, height: 2)
+            layer.shadowOffset = .init(width: 0, height: 2.7)
         default:
             layer.shadowOffset = .zero
         }

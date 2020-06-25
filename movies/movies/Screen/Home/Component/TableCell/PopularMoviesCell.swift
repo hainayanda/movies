@@ -15,7 +15,7 @@ class PopularMoviesCell: UITableViewCell, CalculatedTableCellComponent {
     static var reuseIdentifier: String = "popular_movies_cell"
     
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
-        return 261
+        return 288
     }
     
     lazy var collectionLayout: UICollectionViewFlowLayout = .init()

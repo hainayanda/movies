@@ -13,7 +13,7 @@ class GenresCell: UITableViewCell, CalculatedTableCellComponent {
     typealias Observer = GenresCellObserver
     static var reuseIdentifier: String = "genres_cell"
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
-        return 81
+        return 99
     }
     
     lazy var collectionLayout: UICollectionViewFlowLayout = .init()

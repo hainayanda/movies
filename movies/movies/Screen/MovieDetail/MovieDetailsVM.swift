@@ -213,11 +213,12 @@ extension MovieDetailsVM: UITableViewDataSource, UITableViewDelegate {
         guard section > 0 else {
             return nil
         }
+        let isReviewSection: Bool = (section == 1 && !hasVideo) || (section == 2 && hasVideo)
         let viewModel = SectionWithButtonVM()
         let view = SectionWithButton()
-        view.isHidden = reviewsCell.isEmpty
+        view.isHidden = reviewsCell.isEmpty && isReviewSection
         viewModel.bind(view: view)
-        viewModel.title = hasVideo ? (section == 1 ? "TRAILER" : "REVIEW") : "REVIEW"
+        viewModel.title = isReviewSection ? "REVIEW" : "TRAILER"
         viewModel.buttonTitle = ""
         return view
     }

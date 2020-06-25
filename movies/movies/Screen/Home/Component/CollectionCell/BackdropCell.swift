@@ -32,8 +32,7 @@ class BackdropCell: UICollectionViewCell, CellComponent {
     private func makeSubviewsConstraints() {
         contentView.addSubview(backdropContainer)
         backdropContainer.snp.remakeConstraints { make in
-            make.bottom.top.equalToSuperview().inset(9)
-            make.left.right.equalToSuperview().inset(18)
+            make.edges.equalToSuperview().inset(18)
         }
         backdropContainer.addSubview(backdrop)
         backdrop.snp.remakeConstraints { make in

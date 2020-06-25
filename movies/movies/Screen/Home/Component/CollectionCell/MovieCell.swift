@@ -38,7 +38,8 @@ class MovieCell: UICollectionViewCell, CellComponent {
     private func makeSubviewsConstraints() {
         contentView.addSubview(posterContainer)
         posterContainer.snp.remakeConstraints { make in
-            make.top.left.right.equalToSuperview().inset(9)
+            make.left.right.equalToSuperview().inset(9)
+            make.top.equalToSuperview().inset(18)
         }
         posterContainer.addSubview(poster)
         poster.snp.remakeConstraints { make in
@@ -54,7 +55,7 @@ class MovieCell: UICollectionViewCell, CellComponent {
         genres.snp.remakeConstraints { make in
             make.left.bottom.right.equalToSuperview().inset(9)
             make.top.equalTo(title.snp.bottom).offset(4.5)
-            make.bottom.equalToSuperview().offset(9)
+            make.bottom.equalToSuperview().offset(18)
             make.height.equalTo(14.5)
         }
     }

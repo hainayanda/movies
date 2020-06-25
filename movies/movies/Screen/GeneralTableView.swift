@@ -55,6 +55,7 @@ class GeneralTableView: UIViewController, ViewComponent {
             make.width.equalTo(width)
         }
         navigationItem.titleView = container
+        navigationController?.navigationBar.addDropShadow(at: .bottom)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
