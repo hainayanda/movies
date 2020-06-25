@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C01F155DC639B2D2C877F62 /* libPods-movies-moviesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AA0543268A3B1351896D11 /* libPods-movies-moviesUITests.a */; };
+		736C93DB24A4D65900914BFB /* HomeVMSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93DA24A4D65800914BFB /* HomeVMSpec.swift */; };
+		736C93E024A4D71100914BFB /* GeneralRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93DF24A4D71100914BFB /* GeneralRouterMock.swift */; };
+		736C93E224A4D90800914BFB /* GeneralTableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93E124A4D90800914BFB /* GeneralTableViewMock.swift */; };
 		73C5DAD924A271A600C5B290 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DAD824A271A600C5B290 /* AppDelegate.swift */; };
 		73C5DADB24A271A600C5B290 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DADA24A271A600C5B290 /* SceneDelegate.swift */; };
 		73C5DAE224A271A700C5B290 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73C5DAE124A271A700C5B290 /* Assets.xcassets */; };
@@ -106,6 +109,9 @@
 		20D1F93225B8C10BC37401BA /* Pods-moviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviesTests.release.xcconfig"; path = "Target Support Files/Pods-moviesTests/Pods-moviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		40AA0543268A3B1351896D11 /* libPods-movies-moviesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-movies-moviesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54378C3124EEF02F1712A19C /* libPods-moviesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-moviesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		736C93DA24A4D65800914BFB /* HomeVMSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVMSpec.swift; sourceTree = "<group>"; };
+		736C93DF24A4D71100914BFB /* GeneralRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRouterMock.swift; sourceTree = "<group>"; };
+		736C93E124A4D90800914BFB /* GeneralTableViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewMock.swift; sourceTree = "<group>"; };
 		73C5DAD524A271A600C5B290 /* movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C5DAD824A271A600C5B290 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73C5DADA24A271A600C5B290 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +238,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		736C93D824A4D5C900914BFB /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				736C93E124A4D90800914BFB /* GeneralTableViewMock.swift */,
+				736C93D924A4D63F00914BFB /* Home */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		736C93D924A4D63F00914BFB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				736C93DA24A4D65800914BFB /* HomeVMSpec.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		736C93DE24A4D6FC00914BFB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				736C93DF24A4D71100914BFB /* GeneralRouterMock.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		73C5DACC24A271A600C5B290 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +308,8 @@
 		73C5DAEE24A271A700C5B290 /* moviesTests */ = {
 			isa = PBXGroup;
 			children = (
+				736C93DE24A4D6FC00914BFB /* Router */,
+				736C93D824A4D5C900914BFB /* Screen */,
 				73C5DAEF24A271A700C5B290 /* moviesTests.swift */,
 				73C5DAF124A271A700C5B290 /* Info.plist */,
 			);
@@ -857,6 +890,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				736C93E224A4D90800914BFB /* GeneralTableViewMock.swift in Sources */,
+				736C93E024A4D71100914BFB /* GeneralRouterMock.swift in Sources */,
+				736C93DB24A4D65900914BFB /* HomeVMSpec.swift in Sources */,
 				73C5DAF024A271A700C5B290 /* moviesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
