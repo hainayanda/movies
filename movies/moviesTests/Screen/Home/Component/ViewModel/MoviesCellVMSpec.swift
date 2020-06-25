@@ -28,7 +28,15 @@ class MoviesCellVMSpec: QuickSpec {
                 moviesCellVMForTest.movieRepo = movieRepoMock
                 moviesCellVMForTest.genresRepo = genreRepoMock
                 moviesCellVMForTest.bind(view: testableMoviesCell)
-                
+            }
+            context("positive test") {
+                it("should map genre into dictionary") {
+                    genreRepoMock.mockResult = [
+                        build { $0.id = 1; $0.name = "harder"}, build { $0.id = 2; $0.name = "better"},
+                        build { $0.id = 3; $0.name = "faster"}, build { $0.id = 4; $0.name = "stronger"}
+                    ]
+                    moviesCellVMForTest.updateModel()
+                }
             }
         }
     }
