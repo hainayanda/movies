@@ -15,10 +15,5 @@ This is prove of concept about my MVVM Framework Experiment. iOS app to see info
 ---
 ## Preview
 ### Screenshot
-
-<img width="83" height="180" src="1.png"/>
-<img width="83" height="180" src="2.png"/>
-<img width="83" height="180" src="3.png"/>
-<img width="83" height="180" src="4.png"/>
-<img width="83" height="180" src="5.png"/>
-<img width="83" height="180" src="6.png"/>
+<img width="250" height="540" src="1.png"/><img width="250" height="540" src="2.png"/><img width="250" height="540" src="3.png"/>
+<img width="250" height="540" src="4.png"/><img width="250" height="540" src="5.png"/><img width="250" height="540" src="6.png"/>
