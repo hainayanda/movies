@@ -11,6 +11,8 @@
 		736C93DB24A4D65900914BFB /* HomeVMSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93DA24A4D65800914BFB /* HomeVMSpec.swift */; };
 		736C93E024A4D71100914BFB /* GeneralRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93DF24A4D71100914BFB /* GeneralRouterMock.swift */; };
 		736C93E224A4D90800914BFB /* GeneralTableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93E124A4D90800914BFB /* GeneralTableViewMock.swift */; };
+		736C93E624A4DD7700914BFB /* MoviesCellVMSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93E524A4DD7700914BFB /* MoviesCellVMSpec.swift */; };
+		736C93EC24A4E17D00914BFB /* RepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736C93EB24A4E17D00914BFB /* RepoMock.swift */; };
 		73C5DAD924A271A600C5B290 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DAD824A271A600C5B290 /* AppDelegate.swift */; };
 		73C5DADB24A271A600C5B290 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DADA24A271A600C5B290 /* SceneDelegate.swift */; };
 		73C5DAE224A271A700C5B290 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73C5DAE124A271A700C5B290 /* Assets.xcassets */; };
@@ -112,6 +114,8 @@
 		736C93DA24A4D65800914BFB /* HomeVMSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVMSpec.swift; sourceTree = "<group>"; };
 		736C93DF24A4D71100914BFB /* GeneralRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRouterMock.swift; sourceTree = "<group>"; };
 		736C93E124A4D90800914BFB /* GeneralTableViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewMock.swift; sourceTree = "<group>"; };
+		736C93E524A4DD7700914BFB /* MoviesCellVMSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCellVMSpec.swift; sourceTree = "<group>"; };
+		736C93EB24A4E17D00914BFB /* RepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoMock.swift; sourceTree = "<group>"; };
 		73C5DAD524A271A600C5B290 /* movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C5DAD824A271A600C5B290 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73C5DADA24A271A600C5B290 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				736C93DA24A4D65800914BFB /* HomeVMSpec.swift */,
+				736C93E324A4DD4500914BFB /* Component */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -261,6 +266,30 @@
 				736C93DF24A4D71100914BFB /* GeneralRouterMock.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		736C93E324A4DD4500914BFB /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				736C93E424A4DD6000914BFB /* ViewModel */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		736C93E424A4DD6000914BFB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				736C93E524A4DD7700914BFB /* MoviesCellVMSpec.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		736C93EA24A4E16600914BFB /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				736C93EB24A4E17D00914BFB /* RepoMock.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		73C5DACC24A271A600C5B290 = {
@@ -308,6 +337,7 @@
 		73C5DAEE24A271A700C5B290 /* moviesTests */ = {
 			isa = PBXGroup;
 			children = (
+				736C93EA24A4E16600914BFB /* Repositories */,
 				736C93DE24A4D6FC00914BFB /* Router */,
 				736C93D824A4D5C900914BFB /* Screen */,
 				73C5DAEF24A271A700C5B290 /* moviesTests.swift */,
@@ -892,7 +922,9 @@
 			files = (
 				736C93E224A4D90800914BFB /* GeneralTableViewMock.swift in Sources */,
 				736C93E024A4D71100914BFB /* GeneralRouterMock.swift in Sources */,
+				736C93EC24A4E17D00914BFB /* RepoMock.swift in Sources */,
 				736C93DB24A4D65900914BFB /* HomeVMSpec.swift in Sources */,
+				736C93E624A4DD7700914BFB /* MoviesCellVMSpec.swift in Sources */,
 				73C5DAF024A271A700C5B290 /* moviesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
