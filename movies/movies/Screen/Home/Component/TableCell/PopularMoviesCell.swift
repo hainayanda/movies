@@ -11,7 +11,9 @@ import UIKit
 
 class PopularMoviesCell: UITableViewCell, CalculatedTableCellComponent {
     typealias Observer = PopularMoviesCellObserver
+    
     static var reuseIdentifier: String = "popular_movies_cell"
+    
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
         return 261
     }

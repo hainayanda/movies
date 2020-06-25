@@ -80,6 +80,21 @@ class MovieDetailsVM: ScreenViewModel<TranslucentTableView> {
         bindReviewsRepository()
     }
     
+    func reloadAll() {
+        if let repo = movieRepo {
+            headerCell.shimmer = true
+            repo.getModel()
+        }
+        if let videoRepo = self.videoRepo {
+            videoRepo.getModel()
+        }
+        if let reviewsRepo = self.reviewsRepo {
+            reviewsRepo.getModel(byParam: build { $0.reload = true })
+            loadPage = true
+            noMorePage = false
+        }
+    }
+    
     private func bindReviewsRepository() {
         reviewsRepo?.whenSuccess { [weak self] results in
             guard let self = self else { return }
@@ -149,22 +164,9 @@ class MovieDetailsVM: ScreenViewModel<TranslucentTableView> {
         tableView.register(MoviePreviewCell.self, forCellReuseIdentifier: MoviePreviewCell.reuseIdentifier)
         tableView.register(ReviewCell.self, forCellReuseIdentifier: ReviewCell.reuseIdentifier)
     }
-    
-    func reloadAll() {
-        if let repo = movieRepo {
-            headerCell.shimmer = true
-            repo.getModel()
-        }
-        if let videoRepo = self.videoRepo {
-            videoRepo.getModel()
-        }
-        if let reviewsRepo = self.reviewsRepo {
-            reviewsRepo.getModel(byParam: build { $0.reload = true })
-            loadPage = true
-            noMorePage = false
-        }
-    }
 }
+
+// MARK: Observer
 
 extension MovieDetailsVM: TranslucentTableViewObserver {
     func translucentTableView(_ view: TranslucentTableView, didPullToRefresh refreshControl: UIRefreshControl) {
@@ -172,6 +174,8 @@ extension MovieDetailsVM: TranslucentTableViewObserver {
         refreshControl.endRefreshing()
     }
 }
+
+// MARK: UITableView DataSource & Delegate
 
 extension MovieDetailsVM: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

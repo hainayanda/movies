@@ -12,7 +12,9 @@ import SnapKit
 
 class HeadlineMoviesCell: UITableViewCell, CalculatedTableCellComponent {
     typealias Observer = HeadlineMoviesCellObserver
+    
     static var reuseIdentifier: String = "headline_movies_cell"
+    
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
         return table.frame.width / 2
     }

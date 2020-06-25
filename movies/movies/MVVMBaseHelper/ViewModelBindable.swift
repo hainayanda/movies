@@ -37,6 +37,8 @@ public class ViewModelBindable<Wrapped>: Bindable {
     
 }
 
+// MARK: Binder
+
 public class ViewModelBinder<Observed> {
     public typealias Binder = (Observed) -> Void
     public typealias Comparator = (Observed, Observed) -> Bool

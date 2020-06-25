@@ -18,6 +18,10 @@ class SectionWithButton: UIView, ViewComponent {
     lazy var label: UILabel = .init()
     lazy var button: UIButton = .init()
     
+    @objc func onTapButton() {
+        observer?.sectionWithButtonDidTapButton(self)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backgroundColor = .white
@@ -53,15 +57,13 @@ class SectionWithButton: UIView, ViewComponent {
             make.width.greaterThanOrEqualTo(72)
         }
     }
-    
-    @objc func onTapButton() {
-        observer?.sectionWithButtonDidTapButton(self)
-    }
 }
 
 protocol SectionWithButtonObserver {
     func sectionWithButtonDidTapButton(_ view: SectionWithButton)
 }
+
+// MARK: View Model
 
 class SectionWithButtonVM: ViewModel<SectionWithButton> {
     

@@ -87,6 +87,8 @@ class RatedMovieCell: UICollectionViewCell, CellComponent {
     }
 }
 
+// MARK: View Model
+
 class RatedMovieCellVM: ViewModel<RatedMovieCell> {
     @ViewModelBindable
     var posterImage: ImageCompatible?

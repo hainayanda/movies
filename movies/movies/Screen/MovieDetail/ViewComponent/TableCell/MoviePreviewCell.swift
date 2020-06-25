@@ -37,6 +37,8 @@ class MoviePreviewCell: UITableViewCell, CalculatedTableCellComponent {
     }
 }
 
+// MARK: View Model
+
 class MoviePreviewCellVM: ViewModel<MoviePreviewCell> {
     @ViewModelBindable
     var youtubeCompat: YoutubeCompatible?

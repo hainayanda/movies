@@ -129,12 +129,16 @@ class HomeVM: ScreenViewModel<GeneralTableView> {
     }
 }
 
+// MARK: Observer
+
 extension HomeVM: GeneralTableViewObserver {
     func generalTableView(_ view: GeneralTableView, didPullToRefresh refreshControl: UIRefreshControl) {
         updateModel()
         refreshControl.endRefreshing()
     }
 }
+
+// MARK: UITableView DataSource and Delegate
 
 extension HomeVM: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -201,6 +205,10 @@ extension HomeVM: UITableViewDataSource, UITableViewDelegate {
         return section == 0 ? 0 : 63
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return heightCalculators[safe: indexPath.section]?(tableView, indexPath) ?? 0
+    }
+    
     private func bind<View: UITableViewCell, VModel: ViewModel<View>>(
         viewModel: VModel,
         forTable table: UITableView,
@@ -210,10 +218,6 @@ extension HomeVM: UITableViewDataSource, UITableViewDelegate {
         }
         viewModel.bind(view: cell)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heightCalculators[safe: indexPath.section]?(tableView, indexPath) ?? 0
     }
     
 }

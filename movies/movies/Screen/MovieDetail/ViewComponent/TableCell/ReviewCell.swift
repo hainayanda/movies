@@ -58,6 +58,8 @@ class ReviewCell: UITableViewCell, CellComponent {
     }
 }
 
+// MARK: View Model
+
 class ReviewCellVM: ViewModel<ReviewCell> {
     @ViewModelBindable
     var author: String = ""

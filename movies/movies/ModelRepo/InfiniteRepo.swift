@@ -42,6 +42,8 @@ open class InfiniteMoviesRepo: ModelRepository<[MovieResults.Result], InfinitePa
     }
 }
 
+// MARK: Infinite Param
+
 public class InfiniteParam: Initiable {
     var nextPage: Bool = false
     var reload: Bool {
@@ -56,6 +58,8 @@ public class InfiniteParam: Initiable {
     required public init() { }
 }
 
+// MARK: Popular Movies Repo
+
 class PopularMoviesRepo: InfiniteMoviesRepo {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance
     
@@ -63,6 +67,8 @@ class PopularMoviesRepo: InfiniteMoviesRepo {
         return apiManager.popular(at: page)
     }
 }
+
+// MARK: Latest Movie Repo
 
 class LatestMoviesRepo: InfiniteMoviesRepo {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance
@@ -72,6 +78,8 @@ class LatestMoviesRepo: InfiniteMoviesRepo {
     }
 }
 
+// MARK: Upcoming Repo
+
 class UpcomingMoviesRepo: InfiniteMoviesRepo {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance
     
@@ -79,6 +87,8 @@ class UpcomingMoviesRepo: InfiniteMoviesRepo {
         return apiManager.upcoming(at: page)
     }
 }
+
+// MARK: Genres Repo
 
 class GenresMoviesRepo: InfiniteMoviesRepo {
     
@@ -95,6 +105,8 @@ class GenresMoviesRepo: InfiniteMoviesRepo {
         return apiManager.discover(genres: [genre], at: page)
     }
 }
+
+// MARK: Review Repo
 
 class InfiniteReviewsRepo: ModelRepository<[MovieReviews.Review], InfiniteParam> {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance

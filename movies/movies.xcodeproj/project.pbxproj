@@ -79,6 +79,7 @@
 		73C5DBCB24A4798A00C5B290 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DBCA24A4798A00C5B290 /* ReviewCell.swift */; };
 		73C5DBD024A4949400C5B290 /* TranslucentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DBCF24A4949400C5B290 /* TranslucentTableView.swift */; };
 		73C5DBD424A4B07200C5B290 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DBD324A4B07200C5B290 /* UIViewController+Extensions.swift */; };
+		73C5DBD624A4B5E100C5B290 /* ModelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5DBD524A4B5E100C5B290 /* ModelRepository.swift */; };
 		C6A62B53CD5137B51CFD5E35 /* libPods-moviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54378C3124EEF02F1712A19C /* libPods-moviesTests.a */; };
 		F2AF2B9757EDEADC54568909 /* libPods-movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D6562F6660B39A5D3710DE /* libPods-movies.a */; };
 /* End PBXBuildFile section */
@@ -182,6 +183,7 @@
 		73C5DBCA24A4798A00C5B290 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		73C5DBCF24A4949400C5B290 /* TranslucentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslucentTableView.swift; sourceTree = "<group>"; };
 		73C5DBD324A4B07200C5B290 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		73C5DBD524A4B5E100C5B290 /* ModelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRepository.swift; sourceTree = "<group>"; };
 		A5D6562F6660B39A5D3710DE /* libPods-movies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-movies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE6F47DB4F607584EB9636C2 /* Pods-movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movies.debug.xcconfig"; path = "Target Support Files/Pods-movies/Pods-movies.debug.xcconfig"; sourceTree = "<group>"; };
 		B06487CA92DCB458E7D31964 /* Pods-movies-moviesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movies-moviesUITests.release.xcconfig"; path = "Target Support Files/Pods-movies-moviesUITests/Pods-movies-moviesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				73C5DB0B24A27B3300C5B290 /* ViewModel.swift */,
 				73C5DB0D24A27B4800C5B290 /* ViewModelBindable.swift */,
 				73C5DB4F24A2F8FA00C5B290 /* ViewComponent.swift */,
+				73C5DBD524A4B5E100C5B290 /* ModelRepository.swift */,
 			);
 			path = MVVMBaseHelper;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				73C5DB1624A27E1400C5B290 /* JSONAble+Extension.swift in Sources */,
 				73C5DB3E24A28D0800C5B290 /* Buildable.swift in Sources */,
 				73C5DB4624A2ACD100C5B290 /* MovieCompatible.swift in Sources */,
+				73C5DBD624A4B5E100C5B290 /* ModelRepository.swift in Sources */,
 				73C5DB9C24A362C400C5B290 /* MoviesRepo.swift in Sources */,
 				73C5DBAB24A3C12600C5B290 /* SectionWithButton.swift in Sources */,
 				73C5DBC924A44D7700C5B290 /* MoviePreviewCell.swift in Sources */,

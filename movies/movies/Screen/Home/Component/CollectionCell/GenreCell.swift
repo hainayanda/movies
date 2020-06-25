@@ -48,6 +48,8 @@ class GenreCell: UICollectionViewCell, CellComponent {
     }
 }
 
+// MARK: View Model
+
 class GenreCellVM: ViewModel<GenreCell> {
     @ViewModelBindable
     var color: UIColor = .black

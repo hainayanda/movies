@@ -11,7 +11,9 @@ import UIKit
 
 class MoviesCell: UITableViewCell, CalculatedTableCellComponent {
     typealias Observer = MoviesCellObserver
+    
     static var reuseIdentifier: String = "movies_cell"
+    
     static func preferedHeight(for table: UITableView, at indexPath: IndexPath) -> CGFloat {
         return 225
     }

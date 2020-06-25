@@ -101,12 +101,16 @@ class AllMoviesVM: ScreenViewModel<GeneralTableView> {
     }
 }
 
+// MARK: Observer
+
 extension AllMoviesVM: GeneralTableViewObserver {
     func generalTableView(_ view: GeneralTableView, didPullToRefresh refreshControl: UIRefreshControl) {
         reloadAll()
         refreshControl.endRefreshing()
     }
 }
+
+// MARK: UITableView DataSource & Delegate
 
 extension AllMoviesVM: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

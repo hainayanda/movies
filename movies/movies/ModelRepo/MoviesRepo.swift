@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: Newest Movie Repo
+
 class NewestMovieRepo: ModelRepository<[MovieResults.Result], Void> {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance
     
@@ -26,6 +28,8 @@ class NewestMovieRepo: ModelRepository<[MovieResults.Result], Void> {
     }
 }
 
+// MARK: Coming Soon Movie Repo
+
 class ComingSoonMovieRepo: ModelRepository<[MovieResults.Result], Void> {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance
     
@@ -43,6 +47,8 @@ class ComingSoonMovieRepo: ModelRepository<[MovieResults.Result], Void> {
         })
     }
 }
+
+// MARK: Detail Movie Repo
 
 class DetailMovieRepo: ModelRepository<MovieDetails, Void> {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance
@@ -71,6 +77,8 @@ class DetailMovieRepo: ModelRepository<MovieDetails, Void> {
         })
     }
 }
+
+// MARK: Video Repo
 
 class VideoRepo: ModelRepository<MovieVideoPreview, Void> {
     lazy var apiManager: MovieAPIManager = MovieAPI.instance

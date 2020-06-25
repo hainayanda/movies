@@ -23,6 +23,10 @@ class TranslucentTableView: UIViewController, ViewComponent {
     lazy var blurEffect = UIBlurEffect(style:  .dark)
     lazy var blurEffectView = UIVisualEffectView(effect: blurEffect)
     
+    @objc func didPullToRefresh() {
+        observer?.translucentTableView(self, didPullToRefresh: refreshControl)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -50,6 +54,13 @@ class TranslucentTableView: UIViewController, ViewComponent {
         translucentBackDrop.addSubview(blurEffectView)
     }
     
+    func setNavbar(backgroundColorAlpha alpha: CGFloat) {
+        let color = UIColor.white.withAlphaComponent(alpha)
+        navigationController?.navigationBar.backgroundColor = color
+        statusBarView.alpha = alpha
+        blurEffectView.alpha = 0.8 + (alpha * 0.2)
+    }
+    
     private func setupNavigation() {
         navigationController?.navigationBar.tintColor = .alizarin
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -66,13 +77,6 @@ class TranslucentTableView: UIViewController, ViewComponent {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    func setNavbar(backgroundColorAlpha alpha: CGFloat) {
-        let color = UIColor.white.withAlphaComponent(alpha)
-        navigationController?.navigationBar.backgroundColor = color
-        statusBarView.alpha = alpha
-        blurEffectView.alpha = 0.8 + (alpha * 0.2)
-    }
-    
     private func setupTable() {
         tableView.backgroundColor = .clear
         tableView.contentInset = view.safeAreaInsets
@@ -80,7 +84,7 @@ class TranslucentTableView: UIViewController, ViewComponent {
         tableView.refreshControl = refreshControl
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -90,10 +94,6 @@ class TranslucentTableView: UIViewController, ViewComponent {
             make.top.left.right.equalToSuperview()
             make.height.equalTo(translucentBackDrop.snp.width)
         }
-    }
-    
-    @objc func didPullToRefresh() {
-        observer?.translucentTableView(self, didPullToRefresh: refreshControl)
     }
 }
 

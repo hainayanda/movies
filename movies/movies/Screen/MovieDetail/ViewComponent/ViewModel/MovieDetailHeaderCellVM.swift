@@ -93,7 +93,7 @@ class MovieDetailHeaderCellVM: ViewModel<MovieDetailHeaderCell> {
             formatter.dateFormat = "MMM yyyy"
             let dateStr = formatter.string(from: date)
             label.attributedText = Self.createAtttributedLabel(
-                label: "Release date:",
+                label: "Release date",
                 value: dateStr
             )
         }.equalComparation()

@@ -66,7 +66,7 @@ class GeneralTableView: UIViewController, ViewComponent {
         tableView.refreshControl = refreshControl
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         view.addSubview(tableView)
         tableView.snp.remakeConstraints { make in
             make.edges.equalToSuperview()

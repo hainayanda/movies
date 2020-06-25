@@ -48,8 +48,9 @@ class BackdropCell: UICollectionViewCell, CellComponent {
         backdrop.contentMode = .scaleAspectFill
     }
     
-    
 }
+
+// MARK: View Model
 
 class BackdropCellVM: ViewModel<BackdropCell> {
     @ViewModelBindable
