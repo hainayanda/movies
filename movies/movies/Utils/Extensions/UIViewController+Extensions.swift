@@ -91,13 +91,15 @@ public extension UIViewController {
 
         let toastLabel: UILabel = .init()
         toastLabel.font = .systemFont(ofSize: 12)
-        toastLabel.textColor = .gray
+        toastLabel.textColor = .white
+        toastLabel.textAlignment = .center
         toastLabel.text = message
-        
+        view.addSubview(toastContainer)
         toastContainer.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(63)
             make.trailing.equalToSuperview().offset(-63)
             make.centerY.equalToSuperview()
+            make.height.greaterThanOrEqualTo(54)
         }
         toastContainer.addSubview(toastLabel)
         toastLabel.snp.makeConstraints { make in
