@@ -9,13 +9,13 @@
 import Foundation
 import NamadaJSON
 
-public protocol Initiable: class {
+public protocol Initiable {
     init()
 }
 
-public func build<Buildable: Initiable>(_ builder: (Buildable) -> Void) -> Buildable {
-    let buildable = Buildable()
-    builder(buildable)
+public func build<Buildable: Initiable>(_ builder: (inout Buildable) -> Void) -> Buildable {
+    var buildable = Buildable()
+    builder(&buildable)
     return buildable
 }
 

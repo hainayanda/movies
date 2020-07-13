@@ -19,13 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let home = GeneralTableView()
-        let homeVM = HomeVM()
+        
+        // MARK: The Original MVVM
+//        let home = GeneralTableView()
+//        let homeVM = HomeVM()
+//        let navigationScreen = UINavigationController(rootViewController: home)
+//        window.rootViewController = navigationScreen
+//        window.makeKeyAndVisible()
+//        homeVM.bind(view: home)
+//        homeVM.navigationTitle = "movr"
+        
+        // MARK: VIPER Late chalenge
+        let home = HomeModule.shared.getHomeScreen()
         let navigationScreen = UINavigationController(rootViewController: home)
         window.rootViewController = navigationScreen
         window.makeKeyAndVisible()
-        homeVM.bind(view: home)
-        homeVM.navigationTitle = "movr"
         self.window = window
     }
 

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 open class ViewModel<View>: NSObject, Initiable {
+    public var tag: Any?
     
     required public override init() {
         super.init()
