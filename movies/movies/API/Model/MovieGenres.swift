@@ -7,19 +7,20 @@
 //
 
 import Foundation
+import NamadaJSON
 
 public struct MovieGenres: JSONAble {
 
-    @Keyed
+    @AutoMapping
     public var genres: [Genre] = []
     
     public init() { }
     
     public struct Genre: JSONAble {
-        @Keyed
+        @AutoMapping
         public var id: Int = 0
         
-        @Keyed
+        @AutoMapping
         public var name: String = ""
         
         public init() { }

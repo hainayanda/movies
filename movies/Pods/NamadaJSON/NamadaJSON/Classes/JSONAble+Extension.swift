@@ -1,11 +1,9 @@
 //
-//  JSONAble+Extension.swift
-//  movies
+//  JSONAble.swift
+//  NamadaJSON
 //
-//  Created by Nayanda Haberty (ID) on 24/06/20.
-//  Copyright © 2020 Nayanda Haberty (ID). All rights reserved.
+//  Created by Nayanda Haberty (ID) on 02/03/20.
 //
-//  Copied from my own repository: https://github.com/nayanda1/NamadaJSON
 
 import Foundation
 
@@ -29,9 +27,15 @@ public extension JSONAble {
     
     private var keyedProperties: [Keyable] {
         let reflection = Mirror(reflecting: self)
-        return reflection.children.compactMap {
-            return extractKeyable(fromMirrorChild: $0)
-        }
+        var keyables: [Keyable] = []
+        var currentReflection: Mirror? = reflection
+        repeat {
+            keyables.append(contentsOf: currentReflection?.children.compactMap {
+                return extractKeyable(fromMirrorChild: $0)
+            } ?? [])
+            currentReflection = currentReflection?.superclassMirror
+        } while currentReflection != nil
+        return keyables
     }
     
     private func keyedProperty(for key: String) -> Keyable? {
@@ -45,7 +49,7 @@ public extension JSONAble {
             }?.value as? Keyable
     }
     
-    subscript<T: JSONParseable, TKey: RawRepresentable>(key: TKey) -> T? where TKey.RawValue == String {
+    subscript<Value: JSONParseable, Key: RawRepresentable>(key: Key) -> Value? where Key.RawValue == String {
         get {
             return self[key.rawValue]
         }
@@ -54,20 +58,46 @@ public extension JSONAble {
         }
     }
     
-    subscript<T: JSONParseable>(key: String) -> T? {
+    subscript<Value, Key: RawRepresentable>(key: Key) -> Value? where Key.RawValue == String {
         get {
-            return keyedProperty(for: key)?.value as? T
+            return self[key.rawValue]
+        }
+        set {
+            self[key.rawValue] = newValue
+        }
+    }
+    
+    subscript<Value: JSONParseable>(key: String) -> Value? {
+        get {
+            let property = keyedProperty(for: key)
+            if let serializedProperty = property as? SerializeKeyable {
+                return serializedProperty.value as? Value
+            }
+            return property?.parseableValue as? Value
         }
         set {
             guard let property = keyedProperty(for: key) else {
                 return
             }
-            guard let nonOptionalNewValue: T = newValue else {
-                var mutableProperty = property
-                mutableProperty.value = nil
+            if let serializedProperty = property as? SerializeKeyable {
+                serializedProperty.trySet(newValue)
+            }
+            property.trySet(jsonCompatible: newValue.toJSONCompatible())
+        }
+    }
+    
+    subscript<Value>(key: String) -> Value? {
+        get {
+            guard let property = keyedProperty(for: key) as? SerializeKeyable else {
+                return nil
+            }
+            return property.value as? Value
+        }
+        set {
+            guard let property = keyedProperty(for: key) as? SerializeKeyable else {
                 return
             }
-            property.trySet(jsonCompatible: nonOptionalNewValue.toJSONCompatible())
+            property.trySet(newValue)
         }
     }
     
@@ -82,7 +112,7 @@ public extension JSONAble {
         var json: [String: Any] = [:]
         for property in properties {
             guard let key = property.key else { continue }
-            let compatible = property.value?.toJSONCompatible()
+            let compatible = property.parseableValue.toJSONCompatible()
             if compatible is NSNull && ignoreNull {
                 continue
             }
@@ -102,14 +132,11 @@ public extension JSONAble {
     private func constructStringIgnoreNull(from properties: [Keyable]) -> String {
         var jsonString = "{ "
         for property in properties {
-            guard let value = property.value else {
-                continue
-            }
-            let string = value.toJSONString()
+            let string = property.valueAsJSONString
             guard string != "null", let key = property.key else {
                 continue
             }
-            jsonString = "\(jsonString)\"\(key)\" : \(value.toJSONString()), "
+            jsonString = "\(jsonString)\"\(key)\" : \(string), "
         }
         return "\(jsonString.replacingOccurrences(of: ", $", with: " ", options: .regularExpression, range: nil))}"
     }
@@ -118,7 +145,7 @@ public extension JSONAble {
         var jsonString = "{ "
         for property in properties {
             guard let key = property.key else { continue }
-            jsonString = "\(jsonString)\"\(key)\" : \(property.value?.toJSONString() ?? "null"), "
+            jsonString = "\(jsonString)\"\(key)\" : \(property.valueAsJSONString), "
         }
         return "\(jsonString.replacingOccurrences(of: ", $", with: " ", options: .regularExpression, range: nil))}"
     }

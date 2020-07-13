@@ -1,11 +1,9 @@
 //
 //  SwiftType+JSONParseable.swift
-//  movies
+//  NamadaJSON
 //
-//  Created by Nayanda Haberty (ID) on 24/06/20.
-//  Copyright © 2020 Nayanda Haberty (ID). All rights reserved.
+//  Created by Nayanda Haberty (ID) on 02/03/20.
 //
-//  Copied from my own repository: https://github.com/nayanda1/NamadaJSON
 
 import Foundation
 
@@ -31,8 +29,8 @@ extension String: JSONParseable {
             throw JSONParseableError(description: "String format is invalid")
         }
         var trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
-        trimmed.remove(at: trimmed.startIndex)
-        trimmed.remove(at: trimmed.endIndex)
+        trimmed.removeFirst()
+        trimmed.removeLast()
         return trimmed
     }
     
@@ -75,7 +73,7 @@ extension Bool: JSONParseable {
     
     public static func parse(fromJSONString string: String) throws -> JSONParseable {
         guard let bool = map[string] else {
-            throw JSONParseableError(description: "string format is invalid")
+            throw JSONParseableError(description: "String format is invalid")
         }
         return bool
     }
@@ -84,13 +82,9 @@ extension Bool: JSONParseable {
 extension Array: JSONParseable where Element: JSONParseable {
     
     public func toJSONCompatible() -> JSONCompatible {
-        var compatibleArray: [Any] = []
-        for member in self {
-            compatibleArray.append(
-                member.toJSONCompatible()
-            )
+        return self.compactMap {
+            $0.toJSONCompatible()
         }
-        return compatibleArray
     }
     
     public func toJSONString() -> String {
@@ -161,6 +155,9 @@ extension Optional: JSONParseable where Wrapped: JSONParseable {
     }
     
     public static func parse(fromJSONCompatible compatible: JSONCompatible) throws -> JSONParseable {
+        if compatible is NSNull {
+            return Self(nilLiteral: ())
+        }
         return try Wrapped.parse(fromJSONCompatible: compatible)
     }
     
@@ -171,4 +168,3 @@ extension Optional: JSONParseable where Wrapped: JSONParseable {
         return try Wrapped.parse(fromJSONString: string)
     }
 }
-

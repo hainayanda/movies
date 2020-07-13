@@ -1,0 +1,6 @@
+module NamadaJSON {
+  umbrella header "NamadaJSON-umbrella.h"
+
+  export *
+  module * { export * }
+}

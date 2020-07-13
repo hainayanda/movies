@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import NamadaJSON
 
 public protocol Promise {
     associatedtype Result

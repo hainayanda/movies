@@ -1,11 +1,9 @@
 //
 //  Protocols.swift
-//  movies
+//  NamadaJSON
 //
-//  Created by Nayanda Haberty (ID) on 24/06/20.
-//  Copyright © 2020 Nayanda Haberty (ID). All rights reserved.
+//  Created by Nayanda Haberty (ID) on 02/03/20.
 //
-//  Copied from my own repository: https://github.com/nayanda1/NamadaJSON
 
 import Foundation
 
@@ -40,6 +38,12 @@ public protocol JSONAble: JSONParseable {
 
 public protocol Keyable {
     var key: String? { get set }
-    var value: JSONParseable? { get set }
+    var parseableValue: JSONParseable { get }
+    var valueAsJSONString: String { get }
     func trySet(jsonCompatible: JSONCompatible)
+}
+
+protocol SerializeKeyable: Keyable {
+    var value: Any? { get }
+    func trySet(_ some: Any?)
 }

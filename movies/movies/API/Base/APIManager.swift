@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import NamadaJSON
 
 public protocol APIManager {
     func request<ResultType: JSONParseable>(_ request: APIRequest) -> JSONAPIPromise<ResultType>

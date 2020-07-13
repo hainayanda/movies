@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import NamadaJSON
 
 public class APIRequest: Initiable {
     public var url: String = ""

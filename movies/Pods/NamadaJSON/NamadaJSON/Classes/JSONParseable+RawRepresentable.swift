@@ -1,11 +1,9 @@
 //
 //  JSONParseable+RawRepresentable.swift
-//  movies
+//  NamadaJSON
 //
-//  Created by Nayanda Haberty (ID) on 24/06/20.
-//  Copyright © 2020 Nayanda Haberty (ID). All rights reserved.
+//  Created by Nayanda Haberty (ID) on 02/03/20.
 //
-//  Copied from my own repository: https://github.com/nayanda1/NamadaJSON
 
 import Foundation
 

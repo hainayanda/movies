@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import NamadaJSON
 
 public struct APIResult<ResultType: JSONParseable> {
     public var rawResponse: AFDataResponse<Any>?

@@ -7,34 +7,35 @@
 //
 
 import Foundation
+import NamadaJSON
 
 public struct MovieReviews: JSONAble {
-    @Keyed
+    @AutoMapping
     public var page: Int = 0
     
-    @Keyed(key: "total_results")
+    @AutoMapping(key: "total_results")
     public var totalResults: Int = 0
     
-    @Keyed(key: "total_pages")
+    @AutoMapping(key: "total_pages")
     public var totalPages: Int = 0
     
-    @Keyed
+    @AutoMapping
     public var results: [Review] = []
     
     public init() { }
     
     public struct Review: JSONAble {
         
-        @Keyed
+        @AutoMapping
         public var author: String = ""
         
-        @Keyed
+        @AutoMapping
         public var content: String = ""
         
-        @Keyed
+        @AutoMapping
         public var id: String = ""
         
-        @Keyed
+        @AutoMapping
         public var url: String? = nil
         
         public init() { }

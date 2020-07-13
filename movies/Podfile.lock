@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.2.1)
+  - NamadaJSON (1.0.0)
   - Nimble (8.0.9)
   - Nuke (9.0.0)
   - Quick (2.2.0)
@@ -9,6 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - NamadaJSON
   - Nimble
   - Nuke (~> 9.0)
   - Quick
@@ -19,6 +21,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - NamadaJSON
     - Nimble
     - Nuke
     - Quick
@@ -28,6 +31,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  NamadaJSON: 9c0f5daa2522d59f61e4713a98f5e62d292390c4
   Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
   Nuke: 4390bfb0fcde6aecf314f854439d03914ee7c604
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
@@ -35,6 +39,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   youtube-ios-player-helper-swift: 51a3c5325317c8271d0c7985c1bbe5a252ffb2fd
 
-PODFILE CHECKSUM: 25f8c846118bd4b76a1a1845d055f2e4342b40b6
+PODFILE CHECKSUM: 6fe4698a5aa0d6888443e4179ce224fb626bae32
 
 COCOAPODS: 1.9.1

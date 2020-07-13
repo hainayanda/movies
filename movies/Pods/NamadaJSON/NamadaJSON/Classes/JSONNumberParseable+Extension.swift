@@ -1,11 +1,9 @@
 //
-//  JSONNumberParseable.swift
-//  movies
+//  JSONNumberParseable+Extension.swift
+//  NamadaJSON
 //
-//  Created by Nayanda Haberty (ID) on 24/06/20.
-//  Copyright © 2020 Nayanda Haberty (ID). All rights reserved.
+//  Created by Nayanda Haberty (ID) on 04/03/20.
 //
-//  Copied from my own repository: https://github.com/nayanda1/NamadaJSON
 
 import Foundation
 
@@ -27,7 +25,7 @@ public extension JSONNumberParseable {
     
     static func parse(fromJSONString string: String) throws -> JSONParseable {
         guard let nsNumber = NumberFormatter().number(from: string) else {
-            throw JSONParseableError(description: "string format is invalid")
+            throw JSONParseableError(description: "String format is invalid")
         }
         return try parse(fromNSNumber: nsNumber)
     }

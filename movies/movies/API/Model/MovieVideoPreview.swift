@@ -7,39 +7,40 @@
 //
 
 import Foundation
+import NamadaJSON
 
 public struct MovieVideoPreview: JSONAble {
-    @Keyed
+    @AutoMapping
     public var id: Int64 = 0
     
-    @Keyed
+    @AutoMapping
     public var results: [Result] = []
     
     public init() { }
     
     public struct Result: JSONAble {
-        @Keyed
+        @AutoMapping
         public var id: String = ""
         
-        @Keyed(key: "iso_639_1")
+        @AutoMapping(key: "iso_639_1")
         public var iso639: String = ""
         
-        @Keyed(key: "iso_3166_1")
+        @AutoMapping(key: "iso_3166_1")
         public var iso3166: String = ""
         
-        @Keyed
+        @AutoMapping
         public var key: String = ""
         
-        @Keyed
+        @AutoMapping
         public var name: String = ""
         
-        @Keyed
+        @AutoMapping
         public var site: String = ""
         
-        @Keyed
+        @AutoMapping
         public var size: Int = 0
         
-        @Keyed
+        @AutoMapping
         public var type: String = ""
         
         public init() { }

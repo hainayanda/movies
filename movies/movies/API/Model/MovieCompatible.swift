@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NamadaJSON
 
 public protocol MovieCompatible {
     var movieId: Int64 { get }
