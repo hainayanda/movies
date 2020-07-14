@@ -86,6 +86,7 @@ extension HomeScreenView: HomeView {
         headlineCell.cellsVMs = results
         headlineCell.numberOfPages = results.count
         headlineCell.page = 0
+        headlineCell.carouselStarted = true
         tableView.reloadData()
     }
     

@@ -11,12 +11,6 @@ import UIKit
 
 class HomeScreenPresenter<View: UIViewController>: VCPresenter<View, HomeInteractor, HomeRouter> where View: HomeView {
     
-    var genres: [MovieGenres.Genre] = []
-    var popularMovies: [MovieResults.Result] = []
-    var headlineMovies: [MovieResults.Result] = []
-    var newMovies: [MovieResults.Result] = []
-    var comingSoonMovies: [MovieResults.Result] = []
-    
     var genreColors: [UIColor] = [.alizarin, .flatOrange, .emerald, .turquoise, .peterRiver, .amethyst]
     
     lazy var generalFailureClosure: (Error?) -> Void = { [weak self] error in
